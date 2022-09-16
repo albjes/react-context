@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import CrudApi from "./components/CrudApi";
+import { CrudProvider } from "./context/CrudContext";
+import MyPage from "./components/MyPage";
+import MyPageContext from "./components/MyPageContext";
+import NewExercise from "./components/NewExercise";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CrudProvider>
+        <NewExercise msg="CRUD API CON CONTEXT" flexType="flex-col">
+          <CrudApi />
+        </NewExercise>
+      </CrudProvider>
+      <MyPageContext />
+      <MyPage />
     </div>
   );
 }
